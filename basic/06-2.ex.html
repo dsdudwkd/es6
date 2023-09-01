@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let student = [
+            {classId : 1, name : 'park', score : 80},
+            {classId : 2, name : 'kim', score : 72},
+            {classId : 3, name : 'lee', score : 63}
+        ]
+
+        //name (id: classId) - (score: score) 이게 한 번에 나오게끔
+
+        function newResult(a){
+            return `${a.name} (ID : ${a.classId}) - score : ${a.score}`;
+        }
+        let studentResult = student.map(newResult);
+        console.log(studentResult);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

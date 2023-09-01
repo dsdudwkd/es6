@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        es6에 추가된 배열 관련 메서드
+        - find(함수명): 함수의 조건을 만족하는 '첫 번째 배열의 값'을 반환
+        - findIndex(함수명): 함수의 조건을 만족하는 '첫 번째 배열 값의 순번'을 반환
+        */
+
+        let num = [7, 46, 325, 6, 78, 1];
+
+        function calc(a) {
+            return a > 5;
+        }
+        console.log(num.find(calc)); //7
+        console.log(num.findIndex(calc)); //0
+
+        /*
+        map(함수명) 메서드
+        배열의 값들을 map으로 호출해서 새로운 배열로 만듦
+        한 번만 실행하고 빈 요소로 받은건 실행되지 않음 (호출할 값이 없으므로)
+        기존의 배열은 건들지 않음
+        */
+        let num1 = [1, 2, 3, 4, 5];
+        let calcNum = num1.map(Math.sqrt);//Math.sqrt는 제곱근
+        console.log(num1) //[1, 2, 3, 4, 5]
+        //배열의 값을 객체화해서 새로운 배열로 변환
+        console.log(calcNum); //[1, 1.4142135623730951, 1.7320508075688772, 2, 2.23606797749979]
+
+        let lolHero = [
+            {position : '원딜', heroName : '애쉬'},
+            {position : '마법', heroName : '애니'},
+            {position : '근딜', heroName : '가렌'},
+            {position : '서포터', heroName : '소나'}
+        ]
+
+        let newHero = lolHero.map(getHero);
+
+        function getHero(hero){
+            return [hero.position, hero.heroName].join() //join() = 배열을 문자열로 변환하여 반환하는 메서드
+        }
+        console.log(newHero);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>splitDestructuring</title>
+    <script>
+        /* 
+        split() = 문자열을 배열 형태로 변환해주는 메서드
+        배열 형태로 받아와주는 기준은 특정한 문자열을 구분해서 잘라서 각각의 배열로 저장
+        */
+
+        let text = 'banana,apple,lemon';
+        text.split(',');
+        let [banana, apple, lemon] = text.split(',')
+        console.log(banana, apple, lemon);
+
+        let today = new Date();
+        console.log(today) //Fri Sep 01 2023 11:22:01 GMT+0900 (한국 표준시)
+
+        console.log(today.getDay());
+
+        //toISOString() = ISO 형식의 문자열을 반환, 날짜의 포맷을 바꿔서 출력하는 메서드
+       
+        let useDate = today.toISOString();
+        console.log(useDate); //2023-09-01T02:22:01.921Z
+
+         /* 
+        substring() = 특정 순번의 문자열을 추출하는 메서드
+        시작 인덱스와 끝나는 인덱스의 번호까지 추출하고 나머지는 버린다
+        */
+        let useDateArray = useDate.substring(0, 10);
+        console.log(useDateArray) //2023-09-01
+
+        let [year, month, day] = useDateArray.split('-');
+        console.log(year, month, day)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

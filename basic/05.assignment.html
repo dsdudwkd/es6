@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,20 +19,89 @@
         es6 이전에는 배열이나 객체를 해제할 때 필요한 값들을 하나하나 지정해서 선언하고 작성하는 방법을 썼다
         반복 작업이 많아서 코드가 복잡해지는 불편한 점이 많았다
         */
-        //case1
+        //case1 - 배열 분해 방법
         let fruit = ['apple', 'lemon', 'banana'];
 
         let apple = fruit[0];
-        console.log(apple);
+        console.log(apple); //apple
         let lemon = fruit[1];
         let banana = fruit[2];
 
-        let [apple1, lemon1, banana1 ] = ['apple2', 'lemon2', 'banana2'];
-        console.log(apple1);
+        let [apple1, lemon1, banana1] = ['apple2', 'lemon2', 'banana2'];
+        console.log(apple1); //apple2
 
+        //es6 버전
+        /* 
+        배열의 인덱스를 기준으로 해서 배열의 각 요소들을 추출해서 새로운 변수의 리스트에 할당할 수 있다
+        기존의 es5처럼 index를 이용해서 배열에 직접적으로 접근하지 않아도 된다는 이점이 생긴다
+        */
+        let fruit1 = ['banana', 'apple', 'lemon'];
+        let [a, b, c] = fruit1;
+        console.log(a, b, c); //banana apple lemon
+
+        /*
+        객체 분해 방법
+
+        es5에서는 객체를 분해해서 변수에 할당하려면 배열처럼 변수를 하나하나 선언해서
+        각각의 key값을 이용해서 value값을 할당하는 방식을 사용
+        */
+
+        let obj = {
+            firstName : 'do',
+            lastName : 'anna'
+        };
+
+        let firstName = obj.firstName;
+        let lastName = obj.lastName;
+        console.log(firstName); //do
+        console.log(lastName); //anna
+
+        //위의 예시 es6버전
+        /* 
+        key값을 기준으로 객체로부터 추출해서 새로운 변수에 할당하는 방식
+        */
+
+        let obj2 = {
+            firstName2 : 'hong',
+            lastName2 : 'gildong' 
+        }
+
+        let {firstName2, lastName2} = obj2;
+        console.log(firstName2, lastName2); //hong gildong
+
+        //변수의 선언과 할당을 동시에 하지 않고 따로 분리해서 적용하는 방법
+        let firstName3;
+        let lastName3;
+
+        /* 
+        {}는 코드 블록으로 인식하기 때문에 서로 다른 코드 블록으로 인식되어 있는 상태
+        {}를 인식시키기 전에 표현식으로 인식하게 해줘야 한다
+        ⇒ 코드 블록을 ()로 감싸준다
+        */
+
+        ({firstName3, lastName3} = {firstName3 : 'Lee', lastName3 : 'Mark'});
+        console.log(firstName3, lastName3);
+
+        /* 
+        분해한 객체를 사용할 때 기본값을 설정하는 경우
+        변수에 값을 할당하지 않으면 undefined를 출력한다
+        분해한 객체에 key가 없는 경우 새로운 변수에 값을 설정해 줄 수 있다
+        */
+
+        let item = {
+            firstName4 : 'lee',
+            lastName4 : 'haechan'
+        }
+
+        let {firstName4, lastName4, isTrue=false} = item;
+        console.log(firstName4, lastName4, isTrue);
+
+        //객체구조 할당은 리액트에서 props로 받은 데이터를 구조분해 형식으로 전달받을 때 자주 쓰인다
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        spreadOperator
+        객체나 배열을 분해할 때 분해하고 남은 객체의 나머지를 다른 변수에 할당하는 문법
+        */
+
+        let num = [1, 2, 3, 4];
+
+        let num2 = [...num];
+        console.log(num2);
+
+        // let [...restNum, num3] = num; //Rest element must be last element
+        // 스프레드는 나머지를 뜻하기 때문에 처음이나 중간에 있으면 안되고 항상 마지막에 있어야 한다
+        let [num3, ...restNum] = num;
+        console.log(num3, restNum);
+
+        let numObj = {
+            a : 1,
+            b : 2, 
+            c : 3
+        }
+
+        let numObj2 = {...numObj};
+        console.log(numObj2)
+        let [ex1, ...restObj] = numObj;
+        // console.log(ex1, restObj);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        forEach()
+        - 배열의 요소를 반복하고 새 배열을 만들지 않고 요소에 대한 작업을 수행
+        - 값을 반환하지 않기 때문에 요소 수정에 주로 사용
+        - 콜백 함수로 원본 내용을 수정
+        - 새 배열을 생성하지 않고 각 배열의 요소에 대한 수정과 같은 작업을 수행할 때(새 배열에 업데이트도 가능하긴함)
+
+        map()
+        - 배열의 요소를 반복하고, 각 요소의 변환된 값을 적용하고 그 값들을 새 배열에 적용
+        - 원본 배열에 각 요소에 적용된 함수 적용된 결과 값이 새 배열에 담겨서 반환
+        - 원본은 건들지 않고 오로지 값만 참조해서 새로운 배열에 반환
+        - 원본 배열의 각 요소를 반환하여 새로운 배열을 만들어야 할 때
+        */
+
+        let num = [1, 2, 3, 4];
+
+        //forEach
+        //forEach는 배열에 직접적으로 접근
+        num.forEach(function(a){
+            console.log(a*a);
+        })
+
+        //map
+        //배열에 직접적으로 접근도 가능하지만 아래처럼 새로운 배열을 만드는 방식을 많이 사용
+       /*  num.map(function(a){
+            return console.log(a*a);
+        }) */
+
+        const resultNum = num.map(function(a){
+            return a*a;
+        })
+        console.log(resultNum);
+
+
+        window.onload = function(){
+            let carBrand = ['현대', '기아', '르노', '벤츠', '아우디', 'bmw', '볼보'];
+            let list = document.querySelector('.list');
+            let listItem = '';
+
+            carBrand.forEach(brand);
+            //반복하는 요소에서는 크게 세 개의 매개변수를 활용할 수 있다
+            //forEach(el(value), idx, array)의 순서로 사용할 수 있다
+            //매개변수의 의미보다는 순서에 의해서 결정된다
+            function brand(item, idx){
+                listItem += `<li>${idx+1}번 ${item}입니다.</li>`;
+            }
+            list.innerHTML = listItem;
+        }
+
+        //forEach()로 map()처럼 새로운 배열 생성하기
+        let number = [1, 2, 3, 4, 5];
+        let resultArray = [];
+        number.forEach(function(n){
+            let result = n*n;
+            resultArray.push(result);
+        })
+        console.log(resultArray);
+
+    </script>
+</head>
+<body>
+    <h1>자동차 브랜드 리스트</h1>
+    <ul class="list">
+        
+    </ul>
+</body>
+</html>
