@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        es6(ECMAscript6) = 2016년에 나온 자바스크립트의 버전
+        - 변수의 추가 let, const (var는 사용하지 않도록 권장)
+        - 함수의 작성법이 추가 (화살표 함수)
+        - 새로운 문법(템플릿 리터럴)
+        - 새로운 메서드 추가
+
+        변수는 스코프(scope)의 종류 *스코프는 적용되는 범위
+        - 블럭 레벨의 스코프(if, for, while)에서 선언되는 변수는 블록 내에서만 유효한 변수여야 하며 밖에서는 호출할 수 없다
+          블록 레벨 내에서 선언되는 변수는 모두 지역 변수이다.
+        - 함수 레벨의 스코프: 함수 내에서 선언된 변수는 함수 내에서만 사용하며, 함수 밖에서는 호출할 수 없다
+          함수 내에서 선언된 변수는 모두 지역 변수, 밖에서 선언된 변수는 모두 전역 변수
+        */
+        /* 
+        호이스팅
+        변수를 선언하기 전에 값을 참조하게 되면 변수가 선언되어 있는 것처럼 인식
+        */
+
+        function test() {
+            var b = 2;
+        }
+
+        console.log(a); //undefined 
+        var a = 1;
+        console.log(a); //1
+        // console.log(b); //Uncaught ReferenceError: b is not defined - b가 함수레벨이라
+
+        /* 
+        변수가 생성되는 과정
+        1. 선언
+        - 변수를 실행 하면서 함수에 등록
+
+        2. 초기화
+        - 변수명 안에 값이 들어갈 공간을 만들기 위해서 영역을 확보
+        - 이 단계에서 undefined가 출력됨
+
+        3. 값의 할당
+        undefined로 초기화된 변수에 값이 들어감
+
+        var는 1번과 2번을 동시에 실행
+        변수를 등록하고 공간을 확보하기 위해 undefined로 초기화 하기 때문에
+        변수가 선언되기 전에 값을 참조해도 에러가 발생하지 않지만 undefined를 반환한다. 그 후에 값을 할당하게 된다
+        위 현상을 변수 호이스팅이라고 한다
+
+        let, const 다른 프로그래밍 언어와 같은 블록 레벨의 스코프를 맞추기 위해서 생성된 변수 키워드
+
+        */
+        // console.log(aa); //ReferenceError: Cannot access 'aa' before initialization
+        let aa = 1;
+
+        var a = 123;
+        var a = 456; //변수의 재 선언
+        console.log(a); //456
+
+        let b = 123;
+        // let b = 456; //let과 const는 재 선언이 불가능
+        b = 456; //변수에 값의 재할당만 가능
+        console.log(b); //SyntaxError: Identifier 'b' has already been declared
+
+        const c = 1;
+        // c = 55; //const는 상수이기 때문에 재할당도 불가능
+        // console.log(c); //TypeError: Assignment to constant variable.
+        /* 
+        const는 값이 변하지 않는 상수에 대한 변수
+        const는 재할당 및 재선언이 불가능한 변수의 종류
+        다만, 객체나 배열로 선언되는 경우 값의 변경은 가능
+        */
+
+        //객체 형식에서 const의 값 변경하기
+        const e = {
+            text01: 'javascript',
+            text02: 'ECMA6'
+        };
+        e.text02 = 'ECMA6script';
+        console.log(e); //{text01: 'javascript', text02: 'ECMA6script'}
+        console.log(e['text01']); //javascript
+
+        //배열 형식에서 const의 값 변경하기
+        const f = [1, 2, 3, 4];
+        f[2] = 235;
+        console.log(f); //[1, 2, 235, 4]
+
+        /* 
+        for문 안에 i는 지역변수가 아니라 전역변수이기 때문에
+        i = 10이 아니라 값이 재할당 되어 5를 출력한다
+
+        let으로 바꾸게 되면 for안에 있는 변수는 지역 변수가 되므로 for문 밖에 있는 변수와 서로 다른 값을 가지게 된다
+
+        블록 레벨의 스코프의 장점은 의도치 않은 값이 재할당 되어
+        결과 값이 다르게 나오는 결과를 방지해 줄 수 있다 (의도치 않은 값의 재할당 방지)
+
+        변수를 선언할 때에는 const를 기준으로 하고 재할당이 필요한 경우 let으로 변경하여 사용하는 것을 추천한다
+        (객체를 재할당 하는 경우는 많지 않음)
+        값이 확실하지 않다면 const로 먼저 선언 후에 변경 여부에 따라 let으로 변수를 변경하면 된다(의도치 않은 값의 재할당 방지)
+
+        - let과 const를 사용한다면 var는 사용하지 않는다
+        - 재할당이 필요한 경우 let을 사용하도록 하고 스코프의 범위를 좁게 사용한다
+        */
+
+        var i = 10; //전역변수
+        console.log(i); //10
+        for(var i = 0; i < 5; i++){ //전역변수
+            console.log(i); //0, 1, 2, 3, 4
+        }
+        console.log(i); //4에서 1이 더해진 5가 나옴
+
+        let j = 10; //전역변수
+        for(let j = 0; j < 5; j++){ //지역변수
+            console.log(j); //0, 1, 2, 3, 4
+        }
+        console.log(j); //10
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

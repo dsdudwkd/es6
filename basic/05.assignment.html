@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        구조 분해 할당
+        배열이나 객체에서 각각 값이나 속성들을 분해해서 또 다른 변수에 대입하는 것을 말한다
+        
+
+        */
+
+        /* 
+        es6 이전에 배열 해체 방법
+        
+        es6 이전에는 배열이나 객체를 해제할 때 필요한 값들을 하나하나 지정해서 선언하고 작성하는 방법을 썼다
+        반복 작업이 많아서 코드가 복잡해지는 불편한 점이 많았다
+        */
+        //case1
+        let fruit = ['apple', 'lemon', 'banana'];
+
+        let apple = fruit[0];
+        console.log(apple);
+        let lemon = fruit[1];
+        let banana = fruit[2];
+
+        let [apple1, lemon1, banana1 ] = ['apple2', 'lemon2', 'banana2'];
+        console.log(apple1);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

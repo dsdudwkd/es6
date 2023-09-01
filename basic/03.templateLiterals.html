@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>템플릿 리터럴</title>
+    <script>
+        /* 
+        기존의 문자 표기법은 ''와 ""를 혼용하여 사용했기 때문에 
+        문자가 복잡해지고 오류가 많이 생긴다는 문제가 있다
+
+        새로운 템플릿 리터럴 문법은 ''와 ""을 사용하지 않으며
+        ``(백틱)만 사용한다
+        +를 이용해서 문법을 연결하지 않고 ${변수명}로 변수를 체크한다
+        */
+        const name = 'do'
+        const last = 'anna';
+
+        console.log('제 성은 ' + name + ' 이름은 ' + last + '입니다.')
+
+        console.log(`제 이름은 ${name} ${last}입니다.`);
+
+        let a = 10;
+        let b = 4;
+        let person = '홍길동';
+        console.log('제 이름은 ' + person + '이고, ' + '나이는 ' + (a*b) + '살 입니다.');
+        console.log(`제 이름은 ${person}이고,      나이는 ${10*4}살 입니다.`);
+        /* 
+        백틱 요소 안에 있는 요소들은 문자열로 변환되며 그 위의 요소들은 ${}로 감싸야된다 
+        ${} 안에 있는 요소들은 문자열이 아닌 다른 요소로 인식하도록 되어 있다
+        */
+
+        console.log('안녕하세요\n홍길동입니다.');
+        console.log(`안녕하세요
+            홍
+                길
+                    동
+        입니다.`)
+        /* 
+        새로운 템플릿 리터럴 안에서는 enter키와 tab키 모두 인식한다
+        */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

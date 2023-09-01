@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        점수를 계산
+        학생마다 국어 점수와 영어점수를 더해서 출력
+
+        새로운 과목에 수학을 추가
+        기존 과목에 수학을 추가해서 총 합의 평균을 구하기
+        */
+
+        class Score{
+            constructor(name, kor, eng){
+                this.name = name;
+                this.kor = kor;
+                this.eng = eng;
+            }
+            sum(){
+                return `${this.name}의 국어와 영어의 점수 합은 ${this.kor+this.eng}입니다` ;
+            }
+        }
+
+        let score1 = new Score('park', 50, 30);
+        console.log(score1.sum());
+
+        class Score2 extends Score{
+            constructor(name, kor, eng, math){
+                super(name, kor, eng);
+                this.math = math;
+            }
+            result(){
+                return `${this.name}의 평균은 ${(this.sum() + this.math) / Score2.length} 입니다`;
+            }
+        }
+        let score2 = new Score2('kim', 15, 90, 60);
+        console.log(score2.result());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

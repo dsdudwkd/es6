@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        기존 함수에서의 this는 함수를 호출하는 객체
+
+        화살표 함수에서는 항상 화살표 함수를 정의한 객체를 this로 본다
+        */
+
+        let a = this; //전역 상태에서 this는 항상 window를 가르킨다, document가 아닌 이유는 문서 상에서 호출하지 않기 때문
+        console.log(a); //Window
+
+        function test01(){
+            console.log(this);
+        }
+        test01(); //Window
+
+        test02 = () => {
+            console.log(this);
+        }
+        test02(); //Window
+
+        //일반 함수로 객체(object)로 호출하는 경우
+        const obj = {
+            item : function(){
+                console.log(this);
+            }
+        }
+        obj.item(); //item
+
+        //화살표 함수로 객체를 호출하는 경우
+        const obj2 = {
+            item : () => {
+                console.log(this);
+            }
+        }
+        obj2.item(); //Window obj2라는 객체를 window에서 정의하기 때문에 this값을 Window로 반환
+
+        window.onload = function(){
+            const btn1 = document.querySelector('.btn1');
+            const btn2 = document.querySelector('.btn2');
+
+            btn1.addEventListener('click',function(){
+                console.log(this); //<button class="btn1">버튼1</button>
+            })
+
+            btn2.addEventListener('click', ()=>{
+                console.log(this); //Window
+            })
+        }
+    </script>
+</head>
+<body>
+    <button class="btn1">버튼1</button>
+    <button class="btn2">버튼2</button>
+</body>
+</html>
