@@ -1,0 +1,118 @@
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;  
+  text-decoration: none;
+}
+body, html{
+    background-color: #dddddd;
+}
+header{
+    width: 100%;
+    display: flex;
+    background-color: #2e67d4;
+    justify-content: center;
+}
+.inner{
+    padding: 0 60px;
+    height: 90px;
+    display: flex;
+}
+.gnb{
+    display: flex;
+    gap: 30px;
+}
+.gnb > li{
+    width: 120px;
+    position: relative;
+    transition: 300ms;
+    z-index: 1;
+}
+.gnb > li > a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+}
+.gnb > li >  a:before{
+    content:"";
+    position: absolute;
+    background: pink;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    /* left: 50%;
+    transform: translate(-50%); */
+    transition: 300ms;
+    z-index: -1;
+}
+.gnb > li:nth-of-type(1) > a:before{
+    background-color: #1c407d;
+}
+.gnb > li:nth-of-type(2) > a:before{
+    background-color: #30a9d7;
+}
+.gnb > li:nth-of-type(3) > a:before{
+    background-color: #c59c4e;
+}
+.gnb > li:nth-of-type(4) > a:before{
+    background-color: #939597;
+}
+.gnb > li:nth-of-type(5) > a:before{
+    background-color: #000000;
+}
+.gnb > li:nth-of-type(6) > a:before{
+    background-color: #30b2e2;
+}
+.gnb > li:hover > a:before{
+    top: 0;
+}
+.gnb .subMenu{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 170px;
+    padding: 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    line-height: 0;
+    opacity: 0;
+    transition: opacity 300ms, top 300ms;
+    overflow: hidden;
+}
+.gnb .subMenu.on{
+    top: 90px;
+    opacity: 1;
+    line-height: 50px;
+    padding: 10px 25px;
+}
+.gnb .subMenu a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #333;
+}
+.gnb .subMenu a span{
+    display:inline-block;
+    position: relative;
+}
+.gnb .subMenu a span:after{
+    content:"";
+    width: 0;
+    height: 2px;
+    background-color: #1c407d;
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    transition: 300ms;
+}
+.gnb .subMenu a:hover span:after{
+    width: 100%;
+    padding-right: 20px;
+}
