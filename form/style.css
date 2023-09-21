@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+input, button{
+    outline: none;
+}
+textarea{
+    resize: none; /* 사용자가 사이즈 바꾸지 못하도록 */
+}
+.container{
+    width: 600px;
+    background-color: #fff;
+    margin: 100px auto;
+    box-sizing: border-box;
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 13px 4px rgba(192,200,205,0.91);
+}
+form legend{
+    font: 48px/1 "verdana"; /* 폰트사이즈/line-height 폰트체 */
+    color: #666;
+    margin-bottom: 40px;
+}
+form label{
+    display: block;
+    margin-bottom: 12px;
+    color: #999;
+}
+input[type="text"],
+input[type="password"],
+textarea{
+    width: 100%;
+    background-color: #eee;
+    border: 1px solid #ececec;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    transition: 1s;
+    padding: 12px;
+}
+input[type="text"]::placeholder,
+input[type="password"]::placeholder{
+    color: #333;
+}
+/* outline:none으로 했을 때 focus 효과를 따로 주어야 함 */
+input[type="text"]:focus,
+input[type="password"]:focus{
+    border: 1px solid aqua;
+    background-color: #ddd;
+}
+input[type="text"].error,
+input[type="password"].error{
+    background-color: lightpink;
+    border:1px solid pink;
+}
+h2{
+    font: 12px/1 '돋움';
+    color: #666;
+    margin-bottom: 12px;
+}
+.userHobby label,
+.userGender label{
+    display: inline-block;
+}
+.userHobby input,
+.userGender input{
+    margin-right: 6px;
+}
+.userHobby,
+.userGender{
+    margin-bottom: 12px;
+}
+input[type="reset"]{
+    width: 100%;
+    border: none;
+    margin: 24px 0 12px;
+    box-sizing: border-box;
+    padding: 12px;
+    font: bold 12px/1 'verdana';
+    cursor: pointer;
+    border-radius: 2px;
+    opacity: 0.7;
+    transition: 0.6s;
+}
+input[type="submit"]{
+    width: 100%;
+    border: none;
+    padding: 16px;
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: #666;
+    color: #fff;
+    opacity: 0.7;
+    transition: 0.6s;
+}
+input[type="reset"]:hover,
+input[type="submit"]:hover{
+    opacity: 1;
+}
+
+p{
+    color: red;
+    font: 12px/1 '돋움';
+    display: none;
+}

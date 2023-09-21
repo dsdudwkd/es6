@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 폼 요소 작성</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+</head>
+<body>
+    <section class="container">
+        <form action="" method="post">
+            <legend>MEMBERSHIP</legend><!-- legend는 form의 제목 요소 -->
+
+            <div class="userIdForm">
+                <!-- 명시적인 방법은 input의 id를 label태그의 for와 똑같이 쓰는 방법, 
+                    암시적인 방법은 label태그로 input태그를 감싸는 방법, 
+                    명시적인 방법을 더 많이 사용 암시적인 방법은 구버전에서 안되는 경우도 있음 -->
+                <label for="userId">아이디</label>
+                <input id="userId" type="text" name="userId" placeholder="아이디를 입력하세요.">
+            </div>
+
+            <div class="userPwForm">
+                <label for="userPw1">비밀번호</label>
+                <input type="password" id="userPw1" name="userPw1" placeholder="비밀번호를 입력하세요.">
+
+                <label for="userPw2">비밀번호 확인</label>
+                <input type="password" id="userPw2" name="userPw2" placeholder="비밀번호를 다시 입력해주세요.">
+            </div>
+
+            <div class="userGender">
+                <h2>성별 선택</h2>
+                <p>성별을 선택해주세요</p>
+                <label for="male">남성</label>
+                <!-- name, value속성을 넣어주는 것이 좋다 데이터 넘길 때 성별에 대한 정보를 구분할 수 있도록
+                    (name을 동일하게 작성해야 둘 중 하나 선택 가능) -->
+                <input type="radio" id="male" name="gender" value="male">
+
+                <label for="female">여성</label>
+                <input type="radio" id="female" name="gender" value="female">
+            </div>
+
+            <div class="userHobby">
+                <h2>관심사</h2>
+                <p>관심사를 한 가지 이상 선택해주세요.</p>
+                <label for="game">게임</label>
+                <input type="checkbox" id="game" name="hobby" value="game">
+
+                <label for="game">스포츠</label>
+                <input type="checkbox" id="sport" name="hobby" value="sport">
+
+                <label for="game">음악감상</label>
+                <input type="checkbox" id="music" name="hobby" value="music">
+
+                <label for="game">영화감상</label>
+                <input type="checkbox" id="movie" name="hobby" value="movie">
+
+                <label for="game">자동차</label>
+                <input type="checkbox" id="car" name="hobby" value="car">
+
+                <label for="game">패션</label>
+                <input type="checkbox" id="fashion" name="hobby" value="fashion">
+
+                <label for="game">음식</label>
+                <input type="checkbox" id="food" name="hobby" value="food">
+            </div>
+
+            <div class="userComments">
+
+                <label for="comments">자기 소개</label>
+                <textarea name="comments" id="comments" cols="36" rows="12" placeholder="자기 소개를 입력하세요."></textarea>
+            </div>
+
+            <input type="reset" value="CANCEL">
+            <input type="submit" value="SUBMIT">
+        </form>
+    </section>
+</body>
+</html>
