@@ -28,8 +28,8 @@
 
         let numObj2 = {...numObj};
         console.log(numObj2)
-        let [ex1, ...restObj] = numObj;
-        // console.log(ex1, restObj);
+        let {ex1, ...restObj} = numObj;
+        console.log(ex1, restObj);
     </script>
 </head>
 <body>

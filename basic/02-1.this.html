@@ -15,30 +15,30 @@
         console.log(a); //Window
 
         function test01(){
-            console.log(this);
+            console.log(this); //Window
         }
-        test01(); //Window
+        test01(); 
 
         test02 = () => {
-            console.log(this);
+            console.log(this); //Window
         }
-        test02(); //Window
+        test02(); 
 
         //일반 함수로 객체(object)로 호출하는 경우
         const obj = {
             item : function(){
-                console.log(this);
+                console.log(this); //Object
             }
         }
-        obj.item(); //item
+        obj.item(); 
 
         //화살표 함수로 객체를 호출하는 경우
         const obj2 = {
             item : () => {
-                console.log(this);
+                console.log(this); //Window obj2라는 객체를 window에서 정의하기 때문에 this값을 Window로 반환
             }
         }
-        obj2.item(); //Window obj2라는 객체를 window에서 정의하기 때문에 this값을 Window로 반환
+        obj2.item(); 
 
         window.onload = function(){
             const btn1 = document.querySelector('.btn1');
